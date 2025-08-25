@@ -14,14 +14,18 @@ export class Triangle implements Figure {
     public c: number,
   ) {
     if (a <= 0 || b <= 0 || c <= 0) {
-      throw new Error('your error message');
+      throw new Error(
+        `Triangle side lengths must all be greater than 0. Received a=${a}, b=${b}, c=${c}`
+      );
     }
 
     const longest = Math.max(a, b, c);
     const sumOthers = a + b + c - longest;
 
     if (longest >= sumOthers) {
-      throw new Error('your error message');
+      throw new Error(
+        `Invalid triangle: the sum of any two sides must be greater than the third side. Received a=${a}, b=${b}, c=${c}`
+      );
     }
   }
 
@@ -41,7 +45,7 @@ export class Circle implements Figure {
     public radius: number,
   ) {
     if (radius <= 0) {
-      throw new Error('Radius must be greater than 0');
+      throw new Error(`Radius must be greater than 0. Received radius=${radius}`);
     }
   }
 
@@ -61,7 +65,9 @@ export class Rectangle implements Figure {
     public height: number,
   ) {
     if (width <= 0 || height <= 0) {
-      throw new Error('your error message');
+      throw new Error(
+        `Width and height must be greater than 0. Received width=${width}, height=${height}`
+      );
     }
   }
 
